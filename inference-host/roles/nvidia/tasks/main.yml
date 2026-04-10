@@ -12,6 +12,8 @@
       - nvidia-driver
       - nvidia-driver-cuda
       - cuda
+      - nvidia-container-runtime
+      - nvidia-container-toolkit
     state: latest
   become: true
   become_user: root
