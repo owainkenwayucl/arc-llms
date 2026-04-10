@@ -4,3 +4,5 @@
   - common
   - reboot
   - python312
+  - nvidia
+  - podman
