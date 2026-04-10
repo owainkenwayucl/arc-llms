@@ -1,0 +1,18 @@
+- name: Install Nvidia driver repo
+  ansible.builtin.dnf:
+    name:
+      - almalinux-release-nvidia-driver
+    state: latest
+  become: true
+  become_user: root
+- name: Install Nvidia drivers
+  ansible.builtin.dnf:
+    name:
+      - nvidia-open-kmod
+      - nvidia-driver
+      - nvidia-driver-cuda
+      - cuda
+    state: latest
+  become: true
+  become_user: root
+
