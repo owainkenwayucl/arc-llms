@@ -2,7 +2,6 @@ import yaml
 import sys
 import subprocess
 
-GPU_DEVICE=[{'deviceName':GPU_STRING}]
 KUBECTL_LOCATION=subprocess.run(["/usr/bin/which", "kubectl"], capture_output=True, text=True).stdout.strip()
 
 if len(sys.argv < 3):
