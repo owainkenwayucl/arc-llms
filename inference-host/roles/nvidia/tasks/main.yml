@@ -14,6 +14,7 @@
       - cuda
       - nvidia-container-runtime
       - nvidia-container-toolkit
+      - pciutils
     state: latest
   become: true
   become_user: root
