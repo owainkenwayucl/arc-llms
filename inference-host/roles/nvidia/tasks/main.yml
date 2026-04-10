@@ -15,6 +15,7 @@
       - nvidia-container-runtime
       - nvidia-container-toolkit
       - pciutils
+      - nvtop
     state: latest
   become: true
   become_user: root
