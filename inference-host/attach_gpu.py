@@ -4,7 +4,7 @@ import subprocess
 
 KUBECTL_LOCATION=subprocess.run(["/usr/bin/which", "kubectl"], capture_output=True, text=True).stdout.strip()
 
-if len(sys.argv < 3):
+if len(sys.argv) <3:
 	print("Run with name of VM to modify and host.")
 	sys.exit(1)
 
