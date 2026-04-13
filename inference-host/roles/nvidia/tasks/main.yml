@@ -12,10 +12,20 @@
       - nvidia-driver
       - nvidia-driver-cuda
       - cuda
-      - nvidia-container-runtime
-      - nvidia-container-toolkit
       - pciutils
       - nvtop
+    state: latest
+  become: true
+  become_user: root
+- name: Disable MIG
+  ansible.builtin.shell: "nvidia-smi -i 0 -mig 0"
+  become: true
+  become_user: root
+- name: Install Nvidia container tools
+  ansible.builtin.dnf:
+    name:
+      - nvidia-container-runtime
+      - nvidia-container-toolkit
     state: latest
   become: true
   become_user: root
