@@ -1,0 +1,27 @@
+- name: Make build directory
+  ansible.builtin.file:
+    path: /home/almalinux/container_src
+    state: directory
+- name: Copy Dockerfile
+  ansible.builtin.copy:
+    src: files/Dockerfile
+    dest: /home/almalinux/container_src/Dockerfile
+- name: Copy Config file
+  ansible.builtin.copy:
+    src: files/imagesrv.ini
+    dest: /home/almalinux/container_src/imagesrv.ini
+- name: Copy image server code
+  ansible.builtin.copy:
+    src: files/imagesrv.py
+    dest: /home/almalinux/container_src/imagesrv.py
+- name: Copy requirements.txt
+  ansible.builtin.copy:
+    src: files/requirements.txt
+    dest: /home/almalinux/container_src/requirements.txt
+- name: Build Docker container
+  ansible.builtin.shell: 'cd /home/almalinux/container_src/ && Docker build -t localhost/imagesrv:latest .'
+- name: Create container and run
+  ansible.builting.shell: 'docker run -d --restart=unless-stopped --device nvidia.com/gpu=all -v /home/almalinux/cache:/root/.cache -v /home/almalinux/container_src/imagesrv.ini:/root/imagesrv.ini -p 127.0.0.1:5500:5500 --ipc=host --name=inference localhost/imagesrv:latest'
+  
+
+
