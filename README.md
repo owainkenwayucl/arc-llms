@@ -14,8 +14,8 @@ You will need to get a tenancy with GPUs attached to it. Once you have done that
 Some things to note:
 
 1. It is assumed that the image is in your tenancy. This is because when I started there were no images in the general store on sl-g01.
-2. "username" is just a tag
-3. "keyname" sets which SSH key is injected into your VMs.
+2. `username` is just a tag
+3. `keyname` sets which SSH key is injected into your VMs.
 
 You may also want to modify the tags that configure ingress because by default the subdomains are `inf01`, `inf02` etc.
 
@@ -159,7 +159,7 @@ The last variable (`ANTHROPIC_API_KEY`) is important the first time he runs `cla
 You can also call the image service using the `openai` python library.
 
 ```
-token = HMSWarlockIsBest
+token = "HMSWarlockIsBest"
 from openai import OpenAI
 import base64
 import io
