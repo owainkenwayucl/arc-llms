@@ -74,7 +74,7 @@ resource "harvester_virtualmachine" "vm" {
     condenser_ingress_isEnabled = true
     condenser_ingress_endpt_hostname = "inf${format("%02d", count.index + 1)}"
     condenser_ingress_endpt_port = 5555
-    condenser_ingress_endpt_protocol = "http"
+    condenser_ingress_endpt_protocol = "https"
   }
 
   timeouts {
