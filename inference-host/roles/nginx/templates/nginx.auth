@@ -1,0 +1,6 @@
+    map $http_authorization $api_user {
+         default                               "__unauthenticated__";
+         "Bearer {{lookup('ansible.builtin.password', './.apikey1', chars=['ascii_lowercase','ascii_uppercase','digits'] length=64) }}"    "apikey1";
+         "Bearer {{lookup('ansible.builtin.password', './.apikey2', chars=['ascii_lowercase','ascii_uppercase','digits'] length=64) }}"    "apikey2";
+         "Bearer {{lookup('ansible.builtin.password', './.apikey3', chars=['ascii_lowercase','ascii_uppercase','digits'] length=64) }}"    "apikey3";
+    } 

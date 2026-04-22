@@ -17,10 +17,34 @@
   ansible.builtin.shell: "setsebool -P httpd_can_network_connect 1"
   become: true
   become_user: root
+- name: Copy TLS stub
+  ansible.builtin.copy:
+    dest: /root/generate_certs.sh
+    src: files/generate.sh
+  become: true
+  become_user: root
+- name: Generate certs
+  ansible.builtin.shell: bash /root/generate_certs.sh
+  become: true
+  become_user: root
+- name: Put in place auth file
+  ansible.builtin.template:
+    dest: /etc/nginx/nginx.auth
+    src: templates/nginx.auth
+    mode: "0640"
+    group: nginx
+  become: true
+  become_user: root
 - name: Put in place proxy config
   ansible.builtin.copy:
     dest: /etc/nginx/default.d/llm_proxy.conf
     src: files/llm_proxy.conf
+  become: true
+  become_user: root
+- name: Put in place nginx config
+  ansible.builtin.copy:
+    dest: /etc/nginx/nginx.conf
+    src: files/nginx.conf
   become: true
   become_user: root
 - name: Enable and start nginx service
