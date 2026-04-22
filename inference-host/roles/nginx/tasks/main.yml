@@ -24,7 +24,7 @@
   become: true
   become_user: root
 - name: Generate certs
-  ansible.builtin.shell: bash /root/generate_certs.sh
+  ansible.builtin.shell: "bash /root/generate_certs.sh {{inventory_hostname}}"
   become: true
   become_user: root
 - name: Put in place auth file
