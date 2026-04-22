@@ -1,3 +1,7 @@
+- name: Make sure that the cache directory is present
+  ansible.builtin.file:
+    path: /home/almalinux/cache
+    state: directory
 - name: Make build directory
   ansible.builtin.file:
     path: /home/almalinux/container_src
