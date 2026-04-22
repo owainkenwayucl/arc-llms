@@ -20,7 +20,7 @@
 - name: Copy TLS stub
   ansible.builtin.copy:
     dest: /root/generate_certs.sh
-    src: files/generate.sh
+    src: files/generate_certs.sh
   become: true
   become_user: root
 - name: Generate certs
