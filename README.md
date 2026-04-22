@@ -13,7 +13,7 @@ You will need to get a tenancy with GPUs attached to it. Once you have done that
 
 Some things to note:
 
-1. It is assumed that the image is in your tenancy. This is because when I started there were no images in the general store on sl-g01.
+1. It is assumed that the image is in your tenancy. This is because when I started there were no images in the general store on `sl-g01`.
 2. `username` is just a tag
 3. `keyname` sets which SSH key is injected into your VMs.
 
@@ -32,7 +32,7 @@ terraform apply
 We don't have a standardised nice way of doing this so I have written a fairly shonky Python script which does it.
 
 ```
-python3 attatch_gpu.py <VM id> <GPU id>
+python3 attach_gpu.py <VM id> <GPU id>
 ```
 
 e.g.
