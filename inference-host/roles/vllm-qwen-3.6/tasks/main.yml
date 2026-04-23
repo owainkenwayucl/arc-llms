@@ -1,0 +1,6 @@
+- name: Make sure that the cache directory is present
+  ansible.builtin.file:
+    path: /home/almalinux/cache
+    state: directory
+- name: Create + start VLLM container with Qwen Coder
+  ansible.builtin.shell: 'docker run -d --restart=unless-stopped --device nvidia.com/gpu=all -v /home/almalinux/cache:/root/.cache -p 127.0.0.1:5500:5500 --ipc=host --name=inference docker.io/vllm/vllm-openai:latest --port 5500 --model Qwen/Qwen3.6-35B-A3B-FP8 --served-model-name Qwen --enable-auto-tool-choice --tool-call-parser qwen3_xml'
