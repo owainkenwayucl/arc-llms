@@ -25,7 +25,7 @@
 - name: Build Docker container
   ansible.builtin.shell: 'cd /home/almalinux/container_src/ ; docker build -t localhost/imagesrv:latest .'
 - name: Create container and run
-  ansible.builtin.shell: 'docker run -d --restart=unless-stopped --device nvidia.com/gpu=all -v /home/almalinux/cache:/root/.cache -v /home/almalinux/container_src/imagesrv.ini:/root/imagesrv.ini -p 127.0.0.1:5500:5500 --ipc=host --name=inference localhost/imagesrv:latest'
+  ansible.builtin.shell: 'docker run -d --restart=always --device nvidia.com/gpu=all -v /home/almalinux/cache:/root/.cache -v /home/almalinux/container_src/imagesrv.ini:/root/imagesrv.ini -p 127.0.0.1:5500:5500 --ipc=host --name=inference localhost/imagesrv:latest'
   
 
 
