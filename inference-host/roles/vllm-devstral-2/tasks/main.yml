@@ -3,4 +3,4 @@
     path: /home/almalinux/cache
     state: directory
 - name: Create + start VLLM container with Devstral 2 
-  ansible.builtin.shell: 'docker run -d --restart=always --device nvidia.com/gpu=all -v /home/almalinux/cache:/root/.cache -p 127.0.0.1:5500:5500 --ipc=host --name=inference docker.io/vllm/vllm-openai:latest --port 5500 --model mistralai/Devstral-Small-2-24B-Instruct-2512 --served-model-name Devstral-Small-2 --enable-auto-tool-choice --tool-call-parser mistral'
+  ansible.builtin.shell: 'docker run -d --restart=always --device nvidia.com/gpu=all -v /home/almalinux/cache:/root/.cache -p 127.0.0.1:5500:5500 --ipc=host --name=inference docker.io/vllm/vllm-openai:latest --port 5500 --model mistralai/Devstral-Small-2-24B-Instruct-2512 --served-model-name Devstral-Small-2 --max-model-len 262144 --tensor-parallel-size 2 --enable-auto-tool-choice --tool-call-parser mistral'
