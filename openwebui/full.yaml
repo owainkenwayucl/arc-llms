@@ -1,0 +1,7 @@
+---
+- hosts: all
+  roles:
+  - common
+  - docker
+  - reboot
+  - python312
