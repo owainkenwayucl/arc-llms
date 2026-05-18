@@ -1,0 +1,2 @@
+- name: Start OpenWebUI
+  ansible.builtin.shell: "docker run -d --restart=always -p 5000:8080 -v open-webui:/app/backend/data --name open-webui -e CORS_ALLOW_ORIGIN='https://openwebui.arc-llm.condenser.arc.ucl.ac.uk;http://127.0.0.1/' ghcr.io/open-webui/open-webui:main"
