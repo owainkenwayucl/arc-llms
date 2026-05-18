@@ -1,0 +1,3 @@
+general_settings:
+  master_key: sk-{{lookup('ansible.builtin.password', './.master', length=32), chars=['ascii_letters', 'digits'] }}
+  database_url: "postgresql://llmproxy:{{lookup('ansible.builtin.password', './.pgpass', length=16), chars=['ascii_letters', 'digits'] }}@db:5432/litellm"
