@@ -1,0 +1,2 @@
+- name: Start VLLM container
+  ansible.builtin.shell: 'docker start inference'
