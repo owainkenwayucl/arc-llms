@@ -154,6 +154,47 @@ export ANTHROPIC_API_KEY=dummykey
 
 The last variable (`ANTHROPIC_API_KEY`) is important the first time he runs `claude` because it bypasses the part of the `claude` setup that requires you to log in. He should unset it thereafter otherwise it will conflict with `ANTHROPIC_AUTH_TOKEN`.
 
+##### OpenCode
+
+To use these LLMs with OpenCode, first use the `/connect` command to set an ID and provide the API Key, as noted [here](https://opencode.ai/docs/providers/#custom-provider).
+Then, update your `opencode.json` configuration file on these lines:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ucl-arc-qwen": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "UCL ARC Qwen",
+      "options": {
+        "baseURL": "https://inf01.arc-llm.condenser.arc.ucl.ac.uk/v1"
+      },
+      "models": {
+        "Qwen": {
+          "name": "UCL/Qwen/Qwen3.6-35B-A3B-FP8"
+        }
+      }
+    },
+    "ucl-arc-qwen-coder": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "UCL ARC Qwen-Coder",
+      "options": {
+        "baseURL": "https://inf03.arc-llm.condenser.arc.ucl.ac.uk/v1"
+      },
+      "models": {
+        "Qwen-Coder": {
+          "name": "UCL/Qwen3-Coder-30B-A3B-Instruct-FP8"
+        }
+      }
+    }
+  }
+}
+
+```
+
+Note that the ID you set when you run the `/connect` command should match the ID you set in the JSON configuration file (`ucl-arc-qwen`, for example).
+When you run `/models` in OpenCode, you should see the models listed.
+
 #### Using the image service
 
 You can also call the image service using the `openai` python library.
