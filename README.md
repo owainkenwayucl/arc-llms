@@ -156,8 +156,7 @@ The last variable (`ANTHROPIC_API_KEY`) is important the first time he runs `cla
 
 ##### OpenCode
 
-To use these LLMs with OpenCode, first use the `/connect` command to set an ID and provide the API Key, as noted [here](https://opencode.ai/docs/providers/#custom-provider).
-Then, update your `opencode.json` configuration file on these lines:
+To use these LLMs with [OpenCode](https://opencode.ai/), update your `opencode.json` configuration file on these lines:
 
 ```json
 {
@@ -167,7 +166,8 @@ Then, update your `opencode.json` configuration file on these lines:
       "npm": "@ai-sdk/openai-compatible",
       "name": "UCL ARC Qwen",
       "options": {
-        "baseURL": "https://inf01.arc-llm.condenser.arc.ucl.ac.uk/v1"
+        "baseURL": "https://inf01.arc-llm.condenser.arc.ucl.ac.uk/v1",
+        "apiKkey": "{env:UCL_ARC_API_KEY}"
       },
       "models": {
         "Qwen": {
@@ -179,7 +179,8 @@ Then, update your `opencode.json` configuration file on these lines:
       "npm": "@ai-sdk/openai-compatible",
       "name": "UCL ARC Qwen-Coder",
       "options": {
-        "baseURL": "https://inf03.arc-llm.condenser.arc.ucl.ac.uk/v1"
+        "baseURL": "https://inf03.arc-llm.condenser.arc.ucl.ac.uk/v1",
+        "apiKkey": "{env:UCL_ARC_API_KEY}"
       },
       "models": {
         "Qwen-Coder": {
@@ -191,6 +192,11 @@ Then, update your `opencode.json` configuration file on these lines:
 }
 
 ```
+
+It will read your API key from the `UCL_ARC_API_KEY` environment variable.
+
+You can also mention your key here, or you can provide it to the `/connect` command, in which case it will store it in `~/.local/share/opencode/auth.json` (on Linux).
+Since these methods store your key as plain-text, they are insecure and not recommended.
 
 Note that the ID you set when you run the `/connect` command should match the ID you set in the JSON configuration file (`ucl-arc-qwen`, for example).
 When you run `/models` in OpenCode, you should see the models listed.
