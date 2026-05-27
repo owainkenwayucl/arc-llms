@@ -19,5 +19,5 @@
     src: files/web.yml
     dest: /home/almalinux/prometheus/web.yml
 - name: Create + start prometheus container 
-  ansible.builtin.shell: 'docker run -d --restart=always  -p 9090:9090 -v /home/almalinux/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml -v /home/almalinux/prometheus/web.yml:/etc/prometheus/web.yml -v  /home/almalinux/stats:/stats --name=stats prom/prometheus:latest --config.file=/etc/prometheus/prometheus.yml --web.config.file=/etc/prometheus/web.yml --storage.tsdb.path=/stats --storage.tsdb.retention.time=90d'
+  ansible.builtin.shell: 'docker run -d --restart=always --network=host -v /home/almalinux/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml -v /home/almalinux/prometheus/web.yml:/etc/prometheus/web.yml -v  /home/almalinux/stats:/stats --name=stats prom/prometheus:latest --config.file=/etc/prometheus/prometheus.yml --web.config.file=/etc/prometheus/web.yml --storage.tsdb.path=/stats --storage.tsdb.retention.time=90d'
 
