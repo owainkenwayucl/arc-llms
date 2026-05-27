@@ -1,0 +1,3 @@
+basic_auth_users:
+  stats:
+  $2b$replace_with_hash
