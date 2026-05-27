@@ -2,6 +2,10 @@
   ansible.builtin.file:
     path: /home/almalinux/stats
     state: directory
+    owner: 65534
+    group: 63334
+  become: true
+  become_user: root
 - name: Make sure that the prometheus directory is present
   ansible.builtin.file:
     path: /home/almalinux/prometheus
