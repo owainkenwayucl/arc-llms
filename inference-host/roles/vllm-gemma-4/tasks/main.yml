@@ -1,0 +1,6 @@
+- name: Make sure that the cache directory is present
+  ansible.builtin.file:
+    path: /home/almalinux/cache
+    state: directory
+- name: Create + start VLLM container with Gemma 4 
+  ansible.builtin.shell: 'docker run -d --restart=always --device nvidia.com/gpu=all -v /home/almalinux/cache:/root/.cache -p 127.0.0.1:5500:5500 --ipc=host --name=inference docker.io/vllm/vllm-openai:latest --port 5500 --model google/gemma-4-26B-A4B-it --served-model-name Gemma --max-model-len 32768 --enable-auto-tool-choice --tool-call-parser gemma4 --reasoning-parser gemma4 --chat-template examples/tool_chat_template_gemma4.jinja --default-chat-template-kwargs "{\"enable_thinking\": true}"'
