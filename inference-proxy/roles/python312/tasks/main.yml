@@ -1,0 +1,10 @@
+- name: Install Python 3.12
+  ansible.builtin.dnf:
+    name:
+      - python3.12
+      - python3.12-devel
+      - python3.12-pip
+      - python3.12-wheel
+    state: latest
+  become: true
+  become_user: root

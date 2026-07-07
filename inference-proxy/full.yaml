@@ -1,0 +1,11 @@
+---
+- hosts: all
+  roles:
+  - common
+  - docker
+#  - podman
+  - reboot
+  - python312
+  - nvidia
+  - reboot
+  - nginx
