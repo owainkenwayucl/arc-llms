@@ -31,20 +31,20 @@ resource "harvester_virtualmachine" "vm" {
   
   count = var.vm_count
 
-  name                 = "${var.username}-inference-${format("%02d", count.index + 1)}-${random_id.secret.hex}"
+  name                 = "${var.username}-proxy-${format("%02d", count.index + 1)}-${random_id.secret.hex}"
   namespace            = local.namespace
   restart_after_update = true
 
   description = "Base VM"
 
-  cpu    = 8
-  memory = "128Gi"
+  cpu    = 1
+  memory = "6Gi"
 
   efi         = true
   secure_boot = true
 
   run_strategy    = "RerunOnFailure"
-  hostname        = "${var.username}-inference-${format("%02d", count.index + 1)}-${random_id.secret.hex}"
+  hostname        = "${var.username}-proxy-${format("%02d", count.index + 1)}-${random_id.secret.hex}"
   reserved_memory = "100Mi"
   machine_type    = "q35"
 
@@ -58,7 +58,7 @@ resource "harvester_virtualmachine" "vm" {
   disk {
     name       = "rootdisk"
     type       = "disk"
-    size       = "128Gi"
+    size       = "28Gi"
     bus        = "virtio"
     boot_order = 1
 
