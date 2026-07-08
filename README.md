@@ -143,6 +143,8 @@ Starting up - LLM endpoint = https://inf01.arc-llm.condenser.arc.ucl.ac.uk/v1/Qw
 --- [2.8368186950683594 seconds] 
 ```
 
+##### Claude Code
+
 If he wanted to use the LLM endpoint with Claude code he should set:
 
 ```
@@ -153,6 +155,38 @@ export ANTHROPIC_API_KEY=dummykey
 ```
 
 The last variable (`ANTHROPIC_API_KEY`) is important the first time he runs `claude` because it bypasses the part of the `claude` setup that requires you to log in. He should unset it thereafter otherwise it will conflict with `ANTHROPIC_AUTH_TOKEN`.
+
+##### Codex
+
+Create two config files:
+
+~/.codex/config.toml:
+
+```
+# Default local provider used with `codex --oss`
+oss_provider = "arc_llms"
+
+[model_providers.arc_llms]
+name                  = "UCL ARC"
+base_url              = "https://inf01.arc-llm.condenser.arc.ucl.ac.uk/v1"
+env_key               = "ARC_LLMS_AUTH_TOKEN"
+wire_api              = "responses"
+requires_openai_auth  = false
+```
+
+~/.codex/arc\_llms.config.toml:
+
+```
+model_provider = "arc_llms"
+model = "Qwen"
+```
+
+Then set the environment variable `ARC_LLMS_AUTH_TOKEN` to your API key and run:
+
+```
+codex --oss --model Qwen
+```
+ 
 
 ##### OpenCode
 
