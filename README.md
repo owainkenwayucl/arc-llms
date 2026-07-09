@@ -201,7 +201,7 @@ To use these LLMs with [OpenCode](https://opencode.ai/), update your `opencode.j
       "name": "UCL ARC Qwen",
       "options": {
         "baseURL": "https://inf01.arc-llm.condenser.arc.ucl.ac.uk/v1",
-        "apiKkey": "{env:UCL_ARC_API_KEY}"
+        "apiKey": "{env:UCL_ARC_API_KEY}"
       },
       "models": {
         "Qwen": {
@@ -214,7 +214,7 @@ To use these LLMs with [OpenCode](https://opencode.ai/), update your `opencode.j
       "name": "UCL ARC Qwen-Coder",
       "options": {
         "baseURL": "https://inf03.arc-llm.condenser.arc.ucl.ac.uk/v1",
-        "apiKkey": "{env:UCL_ARC_API_KEY}"
+        "apiKey": "{env:UCL_ARC_API_KEY}"
       },
       "models": {
         "Qwen-Coder": {
