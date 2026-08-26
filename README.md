@@ -5,6 +5,12 @@ This is a slightly involved process.
 
 You will need to get a tenancy with GPUs attached to it. Once you have done that, there is terraform code in `inference-host` which will build your VMs. Having created the VMs, you need to use `attach_gpu.py` to attach a GPU to each VM, **RESTART NOT REBOOT** the VMs so that they migrate to the right machine and then use ansible to install the base environment. Finally, you need to use the appropriate roles to install the right containers and set them to run as daemons.
 
+> [!NOTE]
+> If you are using the POC deployed on Condenser, I sometimes change the models. When I do I will update here what they are:
+> inf01 - `Qwen` - Qwen/Qwen3.6-35B-A3B-FP8
+> inf02 - `Gemma` - RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic
+> inf03 - `Testing` - This model I will change as I test things - currently it is RedHatAI/Qwen3.8-27B-INT4
+
 ## Walkthrough
 
 ### 1. Obtain tenancy and GPU IDs.
