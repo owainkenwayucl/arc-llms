@@ -84,7 +84,7 @@ It is worth changing the contents of `/etc/nginx/nginx.auth` so that keys are na
 
 For example:
 
-```json
+```nginx
     map $http_authorization $api_user {
          default                     "__unauthenticated__";
          "Bearer HMSWarlockIsBest"   "keith.drummond";
@@ -211,7 +211,7 @@ model = "Qwen"
 
 Then set the environment variable `ARC_LLMS_AUTH_TOKEN` to your API key and run:
 
-```
+```console
 codex --oss --model Qwen
 ```
  
