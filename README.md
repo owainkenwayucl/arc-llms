@@ -163,6 +163,27 @@ export ANTHROPIC_API_KEY=dummykey
 
 The last variable (`ANTHROPIC_API_KEY`) is important the first time he runs `claude` because it bypasses the part of the `claude` setup that requires you to log in. He should unset it thereafter otherwise it will conflict with `ANTHROPIC_AUTH_TOKEN`.
 
+If you are using this in an environment where you can't control the environment variables your instance of Claude Code is running in (a good example being Code Server inside the Unified AI infrastructure), you can add these settings to an `env` block in `~/.claude/settings.local.json` like this:
+
+```json
+{
+# ... other settings
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://inf02.arc-llm.condenser.arc.ucl.ac.uk/",
+    "ANTHROPIC_MODEL": "Gemma",
+    "ANTHROPIC_AUTH_TOKEN": "<token>",
+    "ANTHROPIC_API_KEY": "<token>",
+    "CLAUDE_CODE_SKIP_AUTH_LOGIN": "1"
+  },
+}
+```
+
+Then restart Claude Code (in the case of Code Server restart the plugin) and it should pick up the settings.
+
+You may also want to set `CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT` to `1`, by either method as this will stop Claude Code defaulting to a short context window as it does not know these models.
+
+
+
 ##### Codex
 
 Create two config files:
