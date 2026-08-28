@@ -28,7 +28,7 @@ You may also want to modify the tags that configure ingress because by default t
 
 ### 3. Use Terraform to build your VMs.
 
-```
+```console
 cd inference-host 
 terraform init
 terraform apply
@@ -38,14 +38,14 @@ terraform apply
 
 We don't have a standardised nice way of doing this so I have written a fairly shonky Python script which does it.
 
-```
+```console
 python3 attach_gpu.py <VM id> <GPU id>
 ```
 
 e.g.
 
 
-```
+```console
 python3 attach_gpu.py uccaoke-inference-01-e3190ff38b sl-g01-10-000031000
 ```
 
@@ -57,7 +57,7 @@ You then need to **RESTART NOT REBOOT** the VM, either through the Rancher UI or
 
 As with other things I have built:
 
-```
+```console
 ansible-playbook -i generate_inventory.py full.yaml
 ```
 
@@ -84,7 +84,7 @@ It is worth changing the contents of `/etc/nginx/nginx.auth` so that keys are na
 
 For example:
 
-```
+```json
     map $http_authorization $api_user {
          default                     "__unauthenticated__";
          "Bearer HMSWarlockIsBest"   "keith.drummond";
@@ -116,7 +116,7 @@ By default, the containers are run as daemons and set to restart unless explicit
 
 For example, to watch vllm's logs on a vllm server:
 
-```
+```console
 docker logs inference
 ```
 
@@ -128,7 +128,7 @@ There is a very simple chat client in `examples/chat`
 
 Modify `llm.ini` appropriately, e.g. Keith Drummond in the authorisation example might make it look like:
 
-```
+```ini
 [OPENAI]
 endpoint = https://inf02.arc-llm.condenser.arc.ucl.ac.uk/v1
 model = Gemma
@@ -137,7 +137,7 @@ api_key = HMSWarlockIsBest
 
 Create a virtualenv, install requirements and run the client:
 
-```
+```console
 python3.12 -m venv runtime
 source runtime/bin/activate
 pip install -r requirements.txt
@@ -154,7 +154,7 @@ Starting up - LLM endpoint = https://inf01.arc-llm.condenser.arc.ucl.ac.uk/v1/Qw
 
 If he wanted to use the LLM endpoint with Claude code he should set:
 
-```
+```shell
 export ANTHROPIC_BASE_URL=https://inf02.arc-llm.condenser.arc.ucl.ac.uk/
 export ANTHROPIC_MODEL=Gemma
 export ANTHROPIC_AUTH_TOKEN=HMSWarlockIsBest
@@ -190,7 +190,7 @@ Create two config files:
 
 ~/.codex/config.toml:
 
-```
+```toml
 # Default local provider used with `codex --oss`
 oss_provider = "arc_llms"
 
@@ -204,7 +204,7 @@ requires_openai_auth  = false
 
 ~/.codex/arc\_llms.config.toml:
 
-```
+```toml
 model_provider = "arc_llms"
 model = "Qwen"
 ```
@@ -267,7 +267,7 @@ When you run `/models` in OpenCode, you should see the models listed.
 
 You can also call the image service using the `openai` python library.
 
-```
+```python
 token = "HMSWarlockIsBest"
 from openai import OpenAI
 import base64
