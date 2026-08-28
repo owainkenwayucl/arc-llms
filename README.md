@@ -130,8 +130,8 @@ Modify `llm.ini` appropriately, e.g. Keith Drummond in the authorisation example
 
 ```
 [OPENAI]
-endpoint = https://inf01.arc-llm.condenser.arc.ucl.ac.uk/v1
-model = Qwen-Coder
+endpoint = https://inf02.arc-llm.condenser.arc.ucl.ac.uk/v1
+model = Gemma
 api_key = HMSWarlockIsBest
 ```
 
@@ -155,8 +155,8 @@ Starting up - LLM endpoint = https://inf01.arc-llm.condenser.arc.ucl.ac.uk/v1/Qw
 If he wanted to use the LLM endpoint with Claude code he should set:
 
 ```
-export ANTHROPIC_BASE_URL=https://inf01.arc-llm.condenser.arc.ucl.ac.uk/
-export ANTHROPIC_MODEL=Qwen-Coder
+export ANTHROPIC_BASE_URL=https://inf02.arc-llm.condenser.arc.ucl.ac.uk/
+export ANTHROPIC_MODEL=Gemma
 export ANTHROPIC_AUTH_TOKEN=HMSWarlockIsBest
 export ANTHROPIC_API_KEY=dummykey
 ```
