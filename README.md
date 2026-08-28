@@ -143,7 +143,7 @@ source runtime/bin/activate
 pip install -r requirements.txt
 <...>
 python3 chat.py
-Starting up - LLM endpoint = https://inf01.arc-llm.condenser.arc.ucl.ac.uk/v1/Qwen-Coder
+Starting up - LLM endpoint = https://inf02.arc-llm.condenser.arc.ucl.ac.uk/v1/Gemma
 ? hello
 ---
 🤖 : Hello! How can I help you today?
@@ -237,16 +237,16 @@ To use these LLMs with [OpenCode](https://opencode.ai/), update your `opencode.j
         }
       }
     },
-    "ucl-arc-qwen-coder": {
+    "ucl-arc-gemma": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "UCL ARC Qwen-Coder",
+      "name": "UCL ARC Gemma",
       "options": {
-        "baseURL": "https://inf03.arc-llm.condenser.arc.ucl.ac.uk/v1",
+        "baseURL": "https://inf02.arc-llm.condenser.arc.ucl.ac.uk/v1",
         "apiKey": "{env:UCL_ARC_API_KEY}"
       },
       "models": {
-        "Qwen-Coder": {
-          "name": "UCL/Qwen3-Coder-30B-A3B-Instruct-FP8"
+        "Gemma": {
+          "name": "UCL/Gemma4-26B-A4B-IT-FP8"
         }
       }
     }
