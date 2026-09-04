@@ -15,7 +15,7 @@ To fix this, add the following JSON to `Model Info` in the UI:
 
 ### Qwen 3.8 + xhigh
 
-In addition to the above, Qwen 3.8 doesn't support "high" reasoning and LiteLLM likes re-writing "xhigh" to "high". To gix this add the following JSON in addition to the above to `Model Info`:
+In addition to the above, Qwen 3.8 doesn't support "high" reasoning and LiteLLM likes re-writing "xhigh" to "high". To fix this add the following JSON in addition to the above to `Model Info`:
 
 ```json
   "supports_reasoning": true,
