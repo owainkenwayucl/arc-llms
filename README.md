@@ -176,7 +176,7 @@ export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 export CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT=1
 ```
 
-The first five of these make sure that Claude Code also uses your configured model in various instances where it might call out to another model in a hard coded way. The last one makes sure that Claude Code trusts your model's self reported context window
+The first five of these make sure that Claude Code also uses your configured model in various instances where it might call out to another model in a hard coded way. This is important if you have existing Anthropic authentication because those small calls cost (in one of our deployments where LiteLLM allows you to access local models, they end up going to Sonnet as that model is available there and run up the bills!). The last one makes sure that Claude Code trusts your model's self reported context window.
 
 If you are using this in an environment where you can't control the environment variables your instance of Claude Code is running in (a good example being Code Server inside the Unified AI infrastructure), you can add these settings to an `env` block in `~/.claude/settings.local.json` like this:
 
