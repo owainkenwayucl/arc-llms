@@ -164,6 +164,20 @@ export ANTHROPIC_API_KEY=dummykey
 
 The last variable (`ANTHROPIC_API_KEY`) is important the first time he runs `claude` because it bypasses the part of the `claude` setup that requires you to log in. He should unset it thereafter otherwise it will conflict with `ANTHROPIC_AUTH_TOKEN`.
 
+There are additional environment variables you may want to set to make sure htings run smoothly:
+
+```shell
+export ANTHROPIC_DEFAULT_HAIKU_MODEL=$ANTHROPIC_MODEL
+export ANTHROPIC_DEFAULT_SONNET_MODEL=$ANTHROPIC_MODEL
+export ANTHROPIC_DEFAULT_OPUS_MODEL=$ANTHROPIC_MODEL
+export ANTHROPIC_SMALL_FAST_MODEL=$ANTHROPIC_MODEL
+export CLAUDE_CODE_SUBAGENT_MODEL=$ANTHROPIC_MODEL
+export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+export CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT=1
+```
+
+The first five of these make sure that Claude Code also uses your configured model in various instances where it might call out to another model in a hard coded way. The last one makes sure that Claude Code trusts your model's self reported context window
+
 If you are using this in an environment where you can't control the environment variables your instance of Claude Code is running in (a good example being Code Server inside the Unified AI infrastructure), you can add these settings to an `env` block in `~/.claude/settings.local.json` like this:
 
 ```json
