@@ -1,0 +1,21 @@
+- name: Create Open WebUI datastore
+  ansible.builtin.file:
+    path: /home/almalinux/open-webui
+    state: directory
+- name: Create Searxng config
+  ansible.builtin.file:
+    path: /home/almalinux/core-config
+    state: directory
+- name: Put in place docker-compose file.
+  ansible.builtin.copy:
+    dest: /home/almalinux/docker-compose.yml
+    src: files/docker-compose.yml
+- name: Put in place the Open WebUI env
+  ansible.builtin.copy:
+    dest: /home/almalinux/open-webui.env
+    src: files/open-webui.env
+- name: Put in place searxng .env
+  ansible.builtin.copy:
+    dest: /home/almalinux/searxng.env
+    src: files/searxng.env
+
