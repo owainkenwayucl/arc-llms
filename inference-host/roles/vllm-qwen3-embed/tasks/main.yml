@@ -1,0 +1,6 @@
+- name: Make sure that the cache directory is present
+  ansible.builtin.file:
+    path: /home/almalinux/cache
+    state: directory
+- name: Create + start VLLM container with Qwen 3 embedding
+  ansible.builtin.shell: 'docker run -d --restart=always --shm-size=4g --cap-add SYS_NICE -e VLLM_CPU_OMP_THREADS_BIND=0-7 -v /home/almalinux/cache:/root/.cache -p 127.0.0.1:5500:5500 --ipc=host --name=inference docker.io/vllm/vllm-openai-cpu:latest --port 5500 --model Qwen/Qwen3-Embedding-0.6B --runner pooling --dtype float32 --max-model-len 512'
