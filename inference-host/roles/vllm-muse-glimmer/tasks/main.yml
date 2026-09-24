@@ -3,5 +3,5 @@
     path: /home/almalinux/cache
     state: directory
 - name: Create + start VLLM container with Meta Muse Glimmer
-  ansible.builtin.shell: 'docker run -d --restart=always --device nvidia.com/gpu=all -v /home/almalinux/cache:/root/.cache -p 127.0.0.1:5500:5500 --ipc=host --name=inference docker.io/vllm/vllm-openai:nightly --port 5500 --model RedHatAI/Muse-Glimmer-30B-FP8-block --served-model-name Testing --enable-auto-tool-choice --tool-call-parser muse_glimmer --reasoning-parser muse_glimmer --gpu-memory-utilization 0.95 --max-num-seqs 48'
+  ansible.builtin.shell: 'docker run -d --restart=always --device nvidia.com/gpu=all -v /home/almalinux/cache:/root/.cache -p 127.0.0.1:5500:5500 --ipc=host --name=inference docker.io/vllm/vllm-openai:latest --port 5500 --model RedHatAI/Muse-Glimmer-30B-FP8-block --served-model-name Testing --enable-auto-tool-choice --tool-call-parser muse_glimmer --reasoning-parser muse_glimmer --gpu-memory-utilization 0.95 --max-num-seqs 48'
 
