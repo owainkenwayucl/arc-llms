@@ -3,4 +3,4 @@
     path: /home/almalinux/cache
     state: directory
 - name: Create + start lamma.cpp container with Talkie
-  ansible.builtin.shell: 'docker run -d --restart=always -v /home/almalinux/cache:/root/.cache -p 127.0.0.1:5500:5500 --name=inference ghcr.io/ggml-org/llama.cpp:server --port 5500 --host 0.0.0.0 -hf niklassheth/talkie-1930-13b-it-GGUF --no-webui -a Talkie'
+  ansible.builtin.shell: 'docker run -d --restart=always -v /home/almalinux/cache:/root/.cache -p 127.0.0.1:5500:5500 --name=inference ghcr.io/ggml-org/llama.cpp:server --port 5500 --host 0.0.0.0 -hf niklassheth/talkie-1930-13b-it-GGUF --no-ui -a Talkie'
