@@ -7,7 +7,7 @@ You will need to get a tenancy with GPUs attached to it. Once you have done that
 
 > [!NOTE]
 > If you are using the POC deployed on Condenser, I sometimes change the models. When I do I will update here what they are:
-> * inf01 - `Qwen` - Qwen/Qwen3.6-35B-A3B-FP8
+> * inf01 - `Qwen` - RedHatAI/Qwen3.8-27B-INT4
 > * inf02 - `Gemma` - RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic
 > * inf03 - `Testing` - This model I will change as I test things - currently it is RedHatAI/Muse-Glimmer-30B-FP8-block
 > * embed01 - `ibm-granite/granite-embedding-278m-multilingual` - ibm-granite/granite-embedding-278m-multilingual - note this is a CPU node
