@@ -40,6 +40,8 @@ resource "harvester_virtualmachine" "vm" {
   cpu    = 8
   memory = "128Gi"
 
+  cpu_model = "host-passthrough"
+#  reserved_memory = "64Gi" # 16Gi per card for multiple large cards
   efi         = true
   secure_boot = true
 
@@ -75,6 +77,9 @@ resource "harvester_virtualmachine" "vm" {
     condenser_ingress_endpt_hostname = "inf${format("%02d", count.index + 1)}"
     condenser_ingress_endpt_port = 5555
     condenser_ingress_endpt_protocol = "https"
+    condenser_ingress_endpt_nginx_proxy-send-timeout = 600
+    condenser_ingress_endpt_nginx_proxy-read-timeout = 600
+    condenser_ingress_endpt_nginx_proxy-http-version = "1.1"
   }
 
   timeouts {
