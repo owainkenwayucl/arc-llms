@@ -75,7 +75,11 @@ resource "harvester_virtualmachine" "vm" {
     condenser_ingress_endpt_hostname = "litellm"
     condenser_ingress_endpt_port = 4000
     condenser_ingress_endpt_protocol = "http"
-  }
+    condenser_ingress_endpt_nginx_proxy-http-version = "1.1"
+    condenser_ingress_endpt_nginx_proxy-read-timeout = 600
+    condenser_ingress_endpt_nginx_proxy-send-timeout = 600
+    condenser_ingress_endpt_nginx_proxy-body-size    = "100m"  
+}
 
   timeouts {
     create = "20m"
