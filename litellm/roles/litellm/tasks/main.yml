@@ -15,4 +15,4 @@
     dest: /home/almalinux/litellm_setup/config.yaml
     src: templates/config.yaml.j2
 - name: Start LiteLLM with Docker compose
-  ansible.builtin.shell: "cd /home/almalinux/litellm_setup; docker compose -d up"
+  ansible.builtin.shell: "cd /home/almalinux/litellm_setup; docker compose up -d"
