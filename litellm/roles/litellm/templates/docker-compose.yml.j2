@@ -12,7 +12,7 @@ services:
     ports:
       - "4000:4000" # Map the container port to the host, change the host port if necessary
     environment:
-      DATABASE_URL: "postgresql://llmproxy:{{lookup('ansible.builtin.password', './.pgpass', length=16), chars=['ascii_letters', 'digits'] }}@db:5432/litellm"
+      DATABASE_URL: "postgresql://llmproxy:{{lookup('ansible.builtin.password', './.pgpass', length=16, chars=['ascii_letters', 'digits']) }}@db:5432/litellm"
       STORE_MODEL_IN_DB: "True" # allows adding models to proxy via UI
     env_file:
       - .env # Load local .env file
