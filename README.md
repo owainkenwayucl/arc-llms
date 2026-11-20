@@ -7,7 +7,7 @@ You will need to get a tenancy with GPUs attached to it. Once you have done that
 
 
 > [!NOTE]
-> As we migrate towards the pilot this way of accessing the systems will cease to operate. Presently, for continuity, inf01 and inf02 are proxyies to models hosted on Unified AI hardware which are running to smooth transition.
+> As we migrate towards the pilot this way of accessing the systems will cease to operate. Presently, for continuity, inf01 and inf02 are proxies to models hosted on Unified AI hardware which are running to smooth transition.
 
 > [!NOTE]
 > If you are using the POC deployed on Condenser, I sometimes change the models. When I do I will update here what they are:
